@@ -1,13 +1,11 @@
-// /*
-// This is empty on purpose! Your code to build the resume will go here.
-//  */
 var bio = {
     "name": "Parul Kumar",
     "role": "Web developer",
     "contacts": {
         "mobile": "852xxxxxx8",
         "email": "prlkumar96@gmail.com",
-        "github": "https://github.com/PaRUL5"
+        "github": "https://github.com/PaRUL5",
+        'location': "Jahangir puri,New Delhi"
     },
     "welcomeMessage": "Hello!",
     "skills": [
@@ -23,10 +21,11 @@ var bio = {
 var education = {
     "schools": [{
         "name": "USICT",
-        "location": "Delhi",
+        "location": "Dwarka,New Delhi",
         "degree": "B.Tech.",
         "majors": ["Computer Science"],
-        "dates": "01-August-2018"
+        "dates": "01-August-2018",
+        "url": "www.ipu.ac.in"
     }],
 
     "onlineCourses": [{
@@ -48,14 +47,14 @@ var work = {
     "jobs": [{
             "employer": "Live Run",
             "title": "Software engineer",
-            "location": "Delhi",
+            "location": "New Delhi,India",
             "dates": "july 2014 - september 2016",
             "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
         },
         {
             "employer": "Accenture",
             "title": "Software engineer",
-            "location": "Delhi",
+            "location": "New Delhi,India",
             "dates": "september 2016 - current",
             "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
         }
@@ -151,10 +150,12 @@ education.display = function() {
         var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
         var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors);
         var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+        var formattedURL = HTMLonlineURL.replace("%data%", education.schools[i].url);
         $(".education-entry:last").append(formattedName + formattedDegree);
         $(".education-entry:last").append(formattedLocation);
         $(".education-entry:last").append(formattedDates);
         $(".education-entry:last").append(formattedMajor);
+        $(".education-entry:last").append(formattedURL);
     }
     $("#education").append(HTMLonlineClasses);
 
@@ -162,12 +163,14 @@ education.display = function() {
         var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[j].title);
         var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[j].school);
         var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[j].dates);
-        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[j].url);
+        var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[j].url);
         $("#education").append(formattedTitle + formattedSchool);
         $("#education").append(formattedDate);
-        $("#education").append(formattedURL);
+        $("#education").append(formattedOnlineURL);
     }
 
 };
 
 education.display();
+
+$("#mapDiv").append(googleMap);
